@@ -7,28 +7,35 @@ class Vehicle {
     this._type = type;
   }
 
-  get make(){
-    return this._make;
-  }
-  get color(){
-    return this._color;
+  set vehicleMake(make){
+    this._make = "BMW";
   }
 
-  set make( make ){
-    if (typeof(make) === 'string'){
-      this._make = make;
-    }else{
-      throw new TypeError('Vehicle.make must be a string');
-    }
+  set vehicleMake(type){
+    this._type = "Truck";
   }
 
-  set color( color ){
-    if (typeof(color) === 'string'){
-      this._color = color;
-    }else{
-      throw new TypeError('Vehicle.make must be a string');
-    }
+  set vehicleColor(color){
+    this._color = "White";
+  }
+
+  get vehicleDetails(){
+    return "Your vehicle is a " + this.type + ", made by " + this.make + " and is " + this.color + ".";
+  }
+}
+class SuperCar extends Vehicle{
+  constructor(make, color, type, topSpeed, cost){
+    super(make, color, type);
+    this._topSpeed = topSpeed;
+    this._cost = cost;
+  }
+  
+  get supercarDetails(){
+    return "Your vehicle is a " + this.type + ", made by " + this.make + " and is " + this.color + ' with top speed of ' + this.topSpeed + " and a cost of " + this.cost + "."
+  }
+  
+  set bikeSpeed(topSpeed){
+    this._topSpeed = "9001";
   }
 }
 
-console.log("Your vehicle is a ")
