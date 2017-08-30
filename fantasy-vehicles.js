@@ -12,15 +12,28 @@ class Vehicle {
   }
 
   set vehicleMake(make){
-    this._make = "BMW";
+    if(typeof(make) === "string"){
+        this._make = "BMW";
+    }else{
+      throw new TypeError("Not a string baka");
+    }
   }
 
   set vehicleMake(type){
-    this._type = "Truck";
+    if(typeof(type) === "string"){
+        this._type = "truck";
+    }else{
+      throw new TypeError("Not a string baka");
+    }
   }
 
+
   set vehicleColor(color){
-    this._color = "White";
+    if(typeof(color) === "string"){
+        this._color = "White";
+    }else{
+      throw new TypeError("Not a string baka");
+    }
   }
 
 }
@@ -33,11 +46,29 @@ class SuperCar extends Vehicle{
   }
   
   get supercarDetails(){
-    return "Your vehicle is a " + this.type + ", made by " + this.make + " and is " + this.color + ' with top speed of ' + this.topSpeed + " and a cost of " + this.cost + "."
+    return "Your vehicle is a " + this._type + ", made by " + this._make + " and is " + this._color + ' with top speed of ' + this._topSpeed + " and a cost of " + this._cost + "."
   }
   
   set bikeSpeed(topSpeed){
-    this._topSpeed = "9001";
+    if(typeof(topSpeed) === "string"){
+        this._topSpeed = "9001";
+    }else{
+      throw new TypeError("Not a string baka");
+    }
   }
+
+
+  set bikeCost(cost){
+    if(typeof(cost) === "string"){
+        this._cost = "420";
+    }else{
+      throw new TypeError("Not a string baka");
+    }
+  }
+
 }
 
+// let newVehicle = new Vehicle();
+let newSuperCar = new SuperCar("BMW", "Truck", "White", "9001", "420");
+
+console.log (newSuperCar.supercarDetails);
